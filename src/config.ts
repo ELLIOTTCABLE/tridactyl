@@ -170,6 +170,7 @@ const DEFAULTS = o({
         openwith: "hint -W",
         "!": "exclaim",
         "!s": "exclaim_quiet",
+        "!js": "js",
     }),
     followpagepatterns: o({
         next: "^(next|newer)\\b|»|>>|more",
