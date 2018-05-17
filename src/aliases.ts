@@ -38,10 +38,11 @@ export function expandExarr(
     const exarr: string[] =
         typeof exstr === "string" ? exstr.trim().split(/ +/) : exstr
 
-    const command = exarr[0]
+    const command = exarr[0],
+        expansion = aliases[command]
 
     // Base case: alias not found; return original command
-    if (aliases[command] === undefined) {
+    if (expansion === undefined) {
         return exarr
     }
 
@@ -53,7 +54,9 @@ export function expandExarr(
     // Add command to expansions used so far
     prevExpansions.push(command)
 
-    exarr[0] = aliases[command]
+    // Remove the current command being expanded, and replace it with
+    // the command expansion (possibly exploded into multiple words.)
+    exarr.splice(0, 1, ...expansion.trim().split(/ +/))
 
     // Alias exists; expand it recursively
     return expandExarr(exarr, aliases, prevExpansions)
