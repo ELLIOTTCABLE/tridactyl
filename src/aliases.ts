@@ -28,13 +28,16 @@ export function expandExstr(
  * the command is not aliased, including when the command is invalid.
  * Expects, and returns, an array of `command, ...args`.
  *
- * @param exarr :exstr typed by the user on the command line
+ * @param exstr :exstr typed by the user on the command line
  */
 export function expandExarr(
-    exarr: string[],
+    exstr: string | string[],
     aliases = config.get("exaliases"),
     prevExpansions: string[] = [],
 ): string[] {
+    const exarr: string[] =
+        typeof exstr === "string" ? exstr.trim().split(/ +/) : exstr
+
     const command = exarr[0]
 
     // Base case: alias not found; return original command
