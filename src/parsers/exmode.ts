@@ -48,7 +48,7 @@ function convertArgs(params, argv) {
 export function parser(exstr: string): any[] {
     // Expand aliases
     const expandedExstr = aliases.expandExstr(exstr)
-    const [func, ...args] = expandedExstr.trim().split(/\s+/)
+    const [func, ...args] = expandedExstr.trim().split(/ +/)
 
     if (ExCmds.cmd_params.has(func)) {
         try {

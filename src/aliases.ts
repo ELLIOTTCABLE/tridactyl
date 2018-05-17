@@ -13,7 +13,7 @@ export function expandExstr(
     prevExpansions: string[] = [],
 ): string {
     // Split on whitespace
-    let [command, ...args] = exstr.trim().split(/\s+/)
+    let [command, ...args] = exstr.trim().split(/ +/)
 
     // Handle initial (extra) colon
     if (command[0] === ":") {
