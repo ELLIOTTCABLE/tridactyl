@@ -46,6 +46,9 @@ function convertArgs(params, argv) {
 // TODO: Pipe to separate commands
 // TODO: Abbreviated commands
 export function parser(exstr: string): any[] {
+    // Remove prepended colon(s)
+    exstr = exstr.replace(/^:+/, "")
+
     // Expand aliases
     const [command, ...args] = aliases.expandExarr(exstr)
 

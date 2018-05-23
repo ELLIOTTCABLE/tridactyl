@@ -201,6 +201,7 @@ clInput.addEventListener("keydown", function(keyevent) {
 })
 
 clInput.addEventListener("input", () => {
+    // FIXME: This may break with prepended colons. See: #559
     const exstr = clInput.value
     const expandedCmd = aliases.expandExstr(exstr)
 

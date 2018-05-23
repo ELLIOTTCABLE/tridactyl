@@ -15,11 +15,6 @@ export function expandExstr(
     // Split on whitespace
     let [command, ...args] = exstr.trim().split(/ +/)
 
-    // Handle initial (extra) colon
-    if (command[0] === ":") {
-        command = command.substring(1)
-    }
-
     return expandExarr([command, ...args]).join(" ")
 }
 
