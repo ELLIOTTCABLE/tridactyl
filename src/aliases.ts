@@ -1,9 +1,7 @@
 import * as config from "./config"
 
 /**
- * Expands the alias in the provided exstr recursively. Does nothing if
- * the command is not aliased, including when the command is invalid.
- * Returns another string.
+ * As [[expandExarr]], except returns (and takes) a `string`.
  *
  * @param exstr :exstr typed by the user on the command line
  */
@@ -23,7 +21,7 @@ export function expandExstr(
  * the command is not aliased, including when the command is invalid.
  * Expects, and returns, an array of `command, ...args`.
  *
- * @param exstr :exstr typed by the user on the command line
+ * @param exstr :exstr (or exarr) typed by the user on the command line
  */
 export function expandExarr(
     exstr: string | string[],
